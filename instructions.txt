@@ -4,3 +4,5 @@ npm run start -> can use this command in sever file to run the server
 npm i nodemon ->
 npm i mongoose
 npm i dotenv
+npm i bcryptjs
+npm i jsonwebtoken

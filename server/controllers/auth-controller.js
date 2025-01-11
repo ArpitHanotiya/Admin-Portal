@@ -37,12 +37,17 @@ const register = async(req, res) => {
             password,
         });
 
-        res
-            .status(201)
-            .json({msg : userCreated});
+        res.status(201).json({
+            // msg: userCreated, 
+            msg: "registeration successful", 
+            token: await userCreated.generateToken(),
+            userId: userCreated._id.toString(),
+        });
     } catch (error) {
         res.status(500).json("internal server error");
     }
 };
+
+
 
 module.exports = {home, register};
