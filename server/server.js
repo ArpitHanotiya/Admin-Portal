@@ -6,7 +6,7 @@ const connectDb = require("./utils/db")
 
 app.use(express.json());
 
-app.use("/api/auth", router); 
+app.use("/api/auth", router);
 
 // now it will check the router code written in auth-router and not the writtern below for routing
 

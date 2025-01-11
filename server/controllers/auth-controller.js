@@ -1,4 +1,5 @@
-const User = require("../models/user-model")
+const User = require("../models/user-model");
+const bcrypt = require("bcryptjs");
 
 const home = async(req, res) => {
     try {
@@ -25,10 +26,19 @@ const register = async(req, res) => {
             return res.status(400).json({msg : "email already exist"});
         }
 
-        const userCreated = await User.create({username, email, phone, password});
+        // hash the password
+        // const saltRound = 10;
+        // const hash_password = await bcrypt.hash(password, saltRound);
+
+        const userCreated = await User.create({
+            username, 
+            email, 
+            phone, 
+            password,
+        });
 
         res
-            .status(200)
+            .status(201)
             .json({msg : userCreated});
     } catch (error) {
         res.status(500).json("internal server error");
