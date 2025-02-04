@@ -5,7 +5,7 @@ const home = async(req, res) => {
     try {
         res
             .status(200)
-            .send("welcome to admin panel using router");
+            .send("welcome to admin panel using controllers");
     } catch (error) {
         console.log(error);
     }
@@ -44,10 +44,40 @@ const register = async(req, res) => {
             userId: userCreated._id.toString(),
         });
     } catch (error) {
-        res.status(500).json("internal server error");
+        // res.status(500).json("internal server error");
+        next(error);
+    }
+};
+// no need to create a different model for login can use the same model used in the registeration
+const login = async (req, res) => {
+    try {
+        const {email, password} = req.body;
+        const userExist = await User.findOne({email});
+        //when user fill emails it not only gives email it also gives password
+        console.log(userExist);
+        
+
+        if(!userExist){
+            return res.status(400).json({message: "Invalid Credentials"});
+        }
+
+        // const user = await bcrypt.compare(password, userExist.password);
+        const user = await userExist.comparePassword(password);
+
+        if(user){
+            res.status(200).json({
+                // msg: userCreated, 
+                msg: "login successful", 
+                token: await userExist.generateToken(),
+                userId: userExist._id.toString(),
+            });
+        }else{
+            res.status(401).json({message: "Invalid email or password"});
+        }
+
+    } catch (error) {
+        res.status.json("internal server error");
     }
 };
 
-
-
-module.exports = {home, register};
+module.exports = {home, register, login};

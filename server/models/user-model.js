@@ -43,7 +43,13 @@ userSchema.pre("save", async function(next){
     }
 });
 
-//json web tokens (jwt)
+// comparing password
+userSchema.methods.comparePassword = async function(password){
+    console.log("passord Method", this);
+    return bcrypt.compare(password, this.password);
+};
+
+//json web tokens (jwt) -> can this anywhere in controllers
 userSchema.methods.generateToken = async function(){
     try {
         return jwt.sign({
@@ -60,6 +66,8 @@ userSchema.methods.generateToken = async function(){
         console.error(error);
     }
 };
+
+
 
 // define the model or the collection name
 const User = new mongoose.model("User", userSchema);
