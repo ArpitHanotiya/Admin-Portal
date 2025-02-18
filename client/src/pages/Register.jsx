@@ -41,7 +41,7 @@ export const Register = () => {
                 width="500" 
                 height="500" 
               />
-
+            </div>
               <div>
                 <div className="registeration-form">
                   <h1 className="main-heading mb-3">registeration form</h1>
@@ -113,7 +113,7 @@ export const Register = () => {
                 </div>
               </div>
 
-            </div>
+            
           </div>
         </div>
       </main>
