@@ -1,3 +1,5 @@
+import { Analytics } from "../components/Analytics";
+
 export const Home = () => {
     return(
         <>
@@ -31,7 +33,7 @@ export const Home = () => {
                 </section>
             </main>
 
-            <section className="section-analytics">
+            {/* <section className="section-analytics">
                 <div className="container grid grid-four-cols">
                     <div className="div1">
                         <h2>50+</h2>
@@ -50,7 +52,8 @@ export const Home = () => {
                         <p>services</p>
                     </div>
                 </div>
-            </section>
+            </section> */}
+            <Analytics/>
 
             {/* 3rd section */}
             <section className="section-hero">

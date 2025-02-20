@@ -29,9 +29,9 @@ export const Login = () => {
   return <>
     <section>
       <main>
-        <div className="section-registeration">
+        <div className="section-registration">
           <div className="container grid grid-two-cols">
-            <div className="registeration-image">
+            <div className="registration-image">
               <img 
                 src="/image/my_pic.jpg" 
                 alt="someone is trying to do login"
@@ -41,7 +41,7 @@ export const Login = () => {
             </div>
 
               <div>
-                <div className="registeration-form">
+                <div className="registration-form">
                   <h1 className="main-heading mb-3">login form</h1>
                   <br />
 
