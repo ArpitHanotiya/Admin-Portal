@@ -7,7 +7,7 @@ export const Navbar = () => {
             <header>
                 <div className="container">
                     <div className="logo-brand">
-                        <NavLink to="/">Arpit bhai</NavLink>
+                        <NavLink to="/">Arpit</NavLink>
                     </div>
 
                     <nav>
